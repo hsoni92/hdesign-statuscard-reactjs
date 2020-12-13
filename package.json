@@ -14,8 +14,8 @@
     "recharts": "^1.5.0"
   },
   "engines": {
-    "node": "8.15.1",
-    "yarn": "1.15.2"
+    "node": "10.19.0",
+    "yarn": "1.22.5"
   },
   "scripts": {
     "start": "node server.js",
