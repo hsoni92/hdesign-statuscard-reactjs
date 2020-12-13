@@ -13,15 +13,19 @@ class App extends Component {
 
     return (
       <div>
-        <Grid container justify="center" spacing={8}>
-          <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-            <StatusCard type="success" percentage={30} title="JS001" />
-          </Grid>
-          <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-            <StatusCard type="error" percentage={10} title="JE002" />
-          </Grid>
-          <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-            <StatusCard type="warning" percentage={10} title="JW003" />
+        <Grid container justify="center" spacing={4}>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Grid container justify="center" spacing={4}>
+              <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                <StatusCard type="success" percentage={30} title="JS001" />
+              </Grid>
+              <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                <StatusCard type="error" percentage={10} title="JE002" />
+              </Grid>
+              <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                <StatusCard type="warning" percentage={10} title="JW003" />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </div>
