@@ -14,7 +14,7 @@ code {
 }
 
 .App{
-	background-image: linear-gradient(-134deg,#002025 0%,#3f3251 98%);
+	background-color: #eee;
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
