@@ -7,13 +7,13 @@ class App extends Component {
   render() {
     const xs = 8;
     const sm = 8;
-    const md = 6;
+    const md = 3;
     const lg = 3;
     const xl = 3;
 
     return (
       <div>
-        <Grid container justify="center" spacing={10}>
+        <Grid container justify="center" spacing={8}>
           <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
             <StatusCard type="success" percentage={30} title="JS001" />
           </Grid>
