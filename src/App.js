@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     const xs = 8;
     const sm = 8;
-    const md = 3;
+    const md = 4;
     const lg = 3;
     const xl = 3;
 
