@@ -9,8 +9,8 @@ import {
 
 const styles = theme => ({
   card: {
-    width: 280,
-    height: 400,
+    width: '100%',
+    height: 400
   },
   header: {
     backgroundColor: "#455A64",
@@ -35,7 +35,7 @@ const styles = theme => ({
     height: 140,
     display: 'flex',
     justifyContent: 'center',
-    width: 280
+    width: '100%'
   },
 });
 
@@ -43,14 +43,14 @@ class StatusCard extends React.Component {
   getColorTheme = (type) => {
     let NUM_COLOR = "#CDDC39";
     let DONUT_COLORS = [
-      '#DCE775',
+      NUM_COLOR,
       'rgba(255,255,255,0.1)',
     ];
     switch (type) {
       case 'success':
-        NUM_COLOR = "#CDDC39";
+        NUM_COLOR = "#00E5FF";
         DONUT_COLORS = [
-          '#DCE775',
+          NUM_COLOR,
           'rgba(255,255,255,0.1)',
         ];
         break;
@@ -94,7 +94,6 @@ class StatusCard extends React.Component {
     ];
 
     return (
-      <div className="card-outer">
         <Card className={classes.card}>
           <span className={classes.header}>{title}</span>
           <div className={classes.topPanel}>
@@ -133,7 +132,6 @@ class StatusCard extends React.Component {
             </div>
           </CardActions>
         </Card>
-      </div>
     );
   }
 }
