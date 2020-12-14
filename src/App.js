@@ -14,7 +14,7 @@ class App extends Component {
 
     return (
       <Scrollbars style={{ height: '100vh', width: '100vw' }}>
-        <Grid container justify="center" spacing={2}>
+        <Grid className="outer-grid-container" container justify="center" spacing={2}>
           <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
             <Grid container justify="center" spacing={4}>
               <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
