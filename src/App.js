@@ -18,13 +18,20 @@ class App extends Component {
           <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
             <Grid container justify="center" spacing={4}>
               <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                <StatusCard type="success" percentage={30} title="JS001" />
+                <StatusCard type="success" percentage={47}
+                  progressInfo="Deploying Containers 11/20"
+                  duration="12h"
+                  title="JS001" />
               </Grid>
               <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                <StatusCard type="error" percentage={10} title="JE002" />
+                <StatusCard type="error" percentage={64}
+                  duration="0h"
+                  progressInfo="Failed to deploy containers 9/20" title="JE002" />
               </Grid>
               <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                <StatusCard type="warning" percentage={10} title="JW003" />
+                <StatusCard type="warning" percentage={88}
+                  duration="17h"
+                  progressInfo="Failed to cleanup stale containers 1/20" title="JW003" />
               </Grid>
             </Grid>
           </Grid>

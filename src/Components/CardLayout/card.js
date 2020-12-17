@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import InfoIcon from '@material-ui/icons/Info';
 import Card from '@material-ui/core/Card';
+import Tooltip from '@material-ui/core/Tooltip';
 import CardActions from '@material-ui/core/CardActions';
 import {
   PieChart, Pie, Cell,
@@ -20,6 +22,7 @@ const styles = theme => ({
     display: "flex",
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: '12px 0px 12px 0px',
   },
   actions: {
@@ -37,29 +40,38 @@ const styles = theme => ({
     justifyContent: 'center',
     width: '100%'
   },
+  percentBox: {
+    fontSize: "2.5em",
+    padding: "0.2em",
+    margin: "0.1em",
+    borderRadius: '4px'
+  }
 });
 
 class StatusCard extends React.Component {
   getColorTheme = (type) => {
     let NUM_COLOR = "#CDDC39";
+    let NUM_BG = "rgba(205,220,57,0.1)";
     let DONUT_COLORS = [
       NUM_COLOR,
       'rgba(255,255,255,0.1)',
     ];
     switch (type) {
       case 'success':
-        NUM_COLOR = "#00E5FF";
+        NUM_COLOR = "#CDDC39";
         DONUT_COLORS = [
           NUM_COLOR,
           'rgba(255,255,255,0.1)',
         ];
+        NUM_BG = "rgba(205,220,57,0.1)";
         break;
       case 'error':
-        NUM_COLOR = "#F44336";
+        NUM_COLOR = "#f44336";
         DONUT_COLORS = [
           NUM_COLOR,
           'rgba(255,255,255,0.1)',
         ];
+        NUM_BG = "rgba(244,67,54,0.1)";
         break;
       case 'warning':
         NUM_COLOR = "#FFCA28";
@@ -67,6 +79,7 @@ class StatusCard extends React.Component {
           NUM_COLOR,
           'rgba(255,255,255,0.1)',
         ];
+        NUM_BG = "rgba(255,202,42,0.1)";
         break;
       default:
         NUM_COLOR = "#CDDC39";
@@ -76,12 +89,15 @@ class StatusCard extends React.Component {
         ];
         break;
     }
-    return { DONUT_COLORS, NUM_COLOR };
+    return { DONUT_COLORS, NUM_COLOR, NUM_BG };
 
   }
   render() {
-    const { classes, percentage, type, title } = this.props;
-    const { NUM_COLOR, DONUT_COLORS } = this.getColorTheme(type);
+    let { classes, percentage, type, title, progressInfo, duration } = this.props;
+    if (type === "error") {
+      duration = 'Unable';
+    };
+    const { NUM_COLOR, DONUT_COLORS, NUM_BG } = this.getColorTheme(type);
     const data = [
       {
         name: 'Completed',
@@ -95,7 +111,12 @@ class StatusCard extends React.Component {
 
     return (
         <Card className={classes.card}>
-          <span className={classes.header}>{title}</span>
+          <span className={classes.header}>
+            {title}
+            <Tooltip title={progressInfo} aria-label="add" placement="right-start">
+              <InfoIcon style={{ marginLeft: '5px'}} fontSize="small"/>
+            </Tooltip>
+          </span>
           <div className={classes.topPanel}>
             <PieChart width={220} height={200} onMouseEnter={this.onPieEnter}>
               <Pie
@@ -119,15 +140,15 @@ class StatusCard extends React.Component {
             </PieChart>
           </div>
           <CardActions className={classes.actions} disableActionSpacing>
-            <div style={{ fontSize: "0.85em", color: "#999" }}>
+            <div style={{ fontSize: "0.85em", color: "#999", marginBottom: '1em' }}>
               Overall Job Progress
             </div>
             <div>
-              <span style={{ fontSize: "3em", color: NUM_COLOR }} >
+              <span className={classes.percentBox} style={{ color: NUM_COLOR, backgroundColor: NUM_BG }} >
                 {percentage}
               </span>
               <span style={{ fontSize: "0.7em", color: "#777" }} >
-                10h to finish
+                {`${duration} to finish`}
               </span>
             </div>
           </CardActions>
