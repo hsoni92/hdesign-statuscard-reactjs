@@ -15,7 +15,7 @@ const styles = theme => ({
     height: 400
   },
   header: {
-    backgroundColor: "#455A64",
+    backgroundColor: "#336278",
     color: "#90A4AE",
     width: "100%",
     height: 50,
@@ -31,10 +31,10 @@ const styles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: 200,
-    backgroundColor: '#263238'
+    backgroundColor: '#1C4354'
   },
   topPanel: {
-    backgroundColor: "#455A64",
+    backgroundColor: "#336278",
     height: 140,
     display: 'flex',
     justifyContent: 'center',
@@ -52,6 +52,7 @@ class StatusCard extends React.Component {
   getColorTheme = (type) => {
     let NUM_COLOR = "#CDDC39";
     let NUM_BG = "rgba(205,220,57,0.1)";
+    let DONUT_BG = "rgba(255,255,255,0.1)";
     let DONUT_COLORS = [
       NUM_COLOR,
       'rgba(255,255,255,0.1)',
@@ -59,36 +60,23 @@ class StatusCard extends React.Component {
     switch (type) {
       case 'success':
         NUM_COLOR = "#CDDC39";
-        DONUT_COLORS = [
-          NUM_COLOR,
-          'rgba(255,255,255,0.1)',
-        ];
         NUM_BG = "rgba(205,220,57,0.1)";
         break;
       case 'error':
         NUM_COLOR = "#f44336";
-        DONUT_COLORS = [
-          NUM_COLOR,
-          'rgba(255,255,255,0.1)',
-        ];
         NUM_BG = "rgba(244,67,54,0.1)";
         break;
       case 'warning':
         NUM_COLOR = "#FFCA28";
-        DONUT_COLORS = [
-          NUM_COLOR,
-          'rgba(255,255,255,0.1)',
-        ];
         NUM_BG = "rgba(255,202,42,0.1)";
         break;
       default:
-        NUM_COLOR = "#CDDC39";
-        DONUT_COLORS = [
-          NUM_COLOR,
-          'rgba(255,255,255,0.1)',
-        ];
         break;
     }
+    DONUT_COLORS = [
+      NUM_COLOR,
+      DONUT_BG,
+    ];
     return { DONUT_COLORS, NUM_COLOR, NUM_BG };
 
   }
