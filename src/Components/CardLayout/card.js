@@ -12,6 +12,7 @@ import {
 const styles = theme => ({
   card: {
     width: '100%',
+    maxWidth: 300,
     height: 400
   },
   header: {
@@ -63,7 +64,7 @@ class StatusCard extends React.Component {
         NUM_BG = "rgba(205,220,57,0.1)";
         break;
       case 'error':
-        NUM_COLOR = "#f44336";
+        NUM_COLOR = "#FF0000";
         NUM_BG = "rgba(244,67,54,0.1)";
         break;
       case 'warning':
